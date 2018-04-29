@@ -3,11 +3,13 @@ namespace :dev do
     Restaurant.destroy_all
 
     500.times do |i|
-      Restaurant.create!(name: "restaurant#{i.to_s}",
+      Restaurant.create!(
+        name: "restaurant#{i.to_s}",
         opening_hours: "11:00",
         tel: "02-1234-5678",
         address: "my_address",
-        description: "description of the restaurant"
+        description: "description of the restaurant",
+        category: Category.all.sample
       )
     end
     puts "have created fake restaurants"
