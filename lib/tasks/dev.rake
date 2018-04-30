@@ -1,5 +1,5 @@
 namespace :dev do
-  task fake: :environment do
+  task fake_restaurants: :environment do
     Restaurant.destroy_all
 
     500.times do |i|
@@ -15,4 +15,13 @@ namespace :dev do
     puts "have created fake restaurants"
     puts "now you have #{Restaurant.count} restaurants data"
   end
+  
+  task fake_all: :environment do
+    Rake::Task['db:drop'].execute
+    Rake::Task['db:create'].execute
+    Rake::Task['db:migrate'].execute
+    Rake::Task['db:seed'].execute
+    Rake::Task['dev:fake_restaurants'].execute
+  end
+  
 end

@@ -7,5 +7,8 @@ Rails.application.routes.draw do
     resources :restaurants
     resources :categories
   end
-
+  
+  resources :restaurants, only: [:index, :show]
+  resources :categories, only: :show
+  
 end
