@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   resources :restaurants, only: [:index, :show]
   resources :categories, only: :show
   
+  resources :restaurants do
+    resources :comments
+  end
+  
 end
