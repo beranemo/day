@@ -6,8 +6,8 @@ class User < ApplicationRecord
   
   mount_uploader :avatar, AvatarUploader
   
-  has_many :xxxtalk, class_name: "Comment", primary_key: "id", foreign_key: "user_id"  
-  has_many :restaurants, through: :xxxtalk, source: :custom
+  has_many :comments
+  has_many :restaurants, through: :comments
   
   def admin?
     self.role == "admin"
