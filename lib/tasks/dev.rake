@@ -16,12 +16,25 @@ namespace :dev do
     puts "now you have #{Restaurant.count} restaurants data"
   end
   
+  task fake_users: :environment do
+    10.times do |i|
+      User.create(
+        email: "root#{i.to_s}@example.com",
+        password: "12345678", 
+        role: "admin",
+        name: "name#{i.to_s}"
+      )
+    end
+    
+  end
+  
   task fake_all: :environment do
     Rake::Task['db:drop'].execute
     Rake::Task['db:create'].execute
     Rake::Task['db:migrate'].execute
     Rake::Task['db:seed'].execute
     Rake::Task['dev:fake_restaurants'].execute
+    Rake::Task['dev:fake_users'].execute
   end
   
 end

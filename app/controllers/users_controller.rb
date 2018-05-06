@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   
   before_action :set_user, only: [:show, :edit, :update]
+  
+  def index
+    @users = User.all
+  end
 
   def show
-    @commented_restaurants = @user.restaurants.uniq
+    @commented_restaurants = @user.commented_restaurants.uniq
   end
 
   def edit

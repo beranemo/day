@@ -1,0 +1,5 @@
+<% if not x.is_favorited?(current_user) %>
+  <%= link_to 'Favorite', favorite_restaurant_path(x), method: :post, class: "btn btn-primary", data: { :"disable-with" => "Waiting...." } %>
+<% else %>  
+  <%= link_to 'Unfavorite', unfavorite_restaurant_path(x), method: :post, class: "btn btn-info", data: { :"disable-with" => "Waiting...." } %>
+<% end %> 

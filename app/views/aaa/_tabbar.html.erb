@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+
+    <!-- 使用 Bootstrap components 的 Nav Tabs -->
+    <!-- https://getbootstrap.com/docs/3.3/components/#nav-tabs -->
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="<%= 'active' if selected_item == '首頁' %>">
+        <%= link_to '首頁', root_path %>
+      </li>
+      <li role="presentation" class="<%= 'active' if selected_item == '最新動態' %>">
+        <%= link_to '最新動態', newsfeed_restaurants_path %>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+<br>
