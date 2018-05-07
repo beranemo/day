@@ -12,4 +12,6 @@ class Restaurant < ApplicationRecord
     self.favorited_users.include?(user)
   end
   
+  
+  
 end

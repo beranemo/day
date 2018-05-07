@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       
     collection do
       get :newsfeed # 瀏覽所有餐廳的最新動態
+      get :ranking # TOP 10
     end
     
     member do

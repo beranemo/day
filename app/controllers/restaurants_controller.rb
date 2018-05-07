@@ -19,6 +19,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
   end
   
+  def ranking
+    @restaurants = Restaurant.order(favorites_count: :desc).limit(10)
+  end
+  
   def favorite
     @restaurant = Restaurant.find(params[:id])
     favorites = Favorite.where(restaurant: @restaurant, user: current_user)
